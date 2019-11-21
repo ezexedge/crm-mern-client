@@ -1,0 +1,34 @@
+import React , {useContext} from 'react'
+import {Link} from 'react-router-dom'
+import {CRMContext} from '../../context/CRMContext'
+
+const Navegacion = () => {
+
+    const  [auth , guardarAuth] = useContext(CRMContext)
+
+    //lo que hace es que si auth es falso entonces no retorna nada y salgo  con return
+    //quito todo el aside
+
+    
+
+    if(!auth.auth) return null
+
+
+    return ( 
+        <aside className="sidebar col-3">
+            <h2>Administración</h2>
+            
+
+            <nav className="navegacion">
+                <Link to={"/"}  className="clientes">Clientes</Link>
+                <Link to={"/productos"}  className="productos">Productos</Link>
+                <Link to={"/pedidos"}  className="pedidos">Pedidos</Link>
+
+               
+            </nav>
+        </aside>
+        
+     );
+}
+ 
+export default Navegacion;
